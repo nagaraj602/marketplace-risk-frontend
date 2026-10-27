@@ -1,0 +1,37 @@
+# Multi-stage Dockerfile for React 19 + Vite Frontend
+# Build Stage
+FROM node:22-alpine AS builder
+
+WORKDIR /app
+
+COPY package*.json ./
+RUN npm ci
+
+COPY . .
+RUN npm run build
+
+# Runtime Stage
+FROM node:22-alpine
+
+WORKDIR /app
+
+ENV NODE_ENV=production \
+    PORT=3000
+
+# Install production dependencies only for Express server
+COPY package*.json ./
+RUN npm ci --omit=dev && npm cache clean --force
+
+# Copy built frontend assets and server
+COPY --from=builder /app/build ./build
+COPY server.js .
+
+# Use non-root node user provided by the alpine base image
+USER node
+
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+    CMD wget -qO- http://localhost:3000/health || exit 1
+
+CMD ["node", "server.js"]
