@@ -21,7 +21,8 @@ Interactive Trust & Safety analyst dashboard for real-time risk triage, entity g
 - **Build Tool**: Vite 8.3 (Ultra-fast HMR and bundling in <500ms)
 - **Production Server**: Express 5.0 (Static serving + API reverse proxy)
 - **UI / Icons**: Lucide-React + Glassmorphism dark UI
-- **Containerization**: Multi-stage Docker (`node:22-alpine` builder -> `node:22-alpine` runner)
+- **Containerization**: Multi-stage Docker (`node:24-alpine` builder -> `node:24-alpine` runner)
+- **Design System**: Monochromatic high-contrast palette (pure white `#ffffff` and shades of white `#f4f4f5`, `#e4e4e7`, `#d4d4d8`, `#a1a1aa` on deep obsidian canvas, zero blue/purple)
 - **Orchestration**: Kubernetes + Helm v3/v4 with HPA
 - **CI/CD**: Jenkins Multibranch Pipelines with SonarQube & Trivy Quality Gates
 
