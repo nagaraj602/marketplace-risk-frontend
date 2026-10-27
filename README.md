@@ -28,6 +28,17 @@ Interactive Trust & Safety analyst dashboard for real-time risk triage, entity g
 
 ---
 
+## ⚙️ Prerequisites
+
+Before setting up the frontend console, verify the following prerequisites:
+- **Node.js 24 LTS+**: Active LTS JavaScript runtime (`node -v`)
+- **npm 10+**: Node package manager (`npm -v`)
+- **Docker Engine 24.0+**: (Optional for local Vite development; required for container builds)
+- **Port Availability**: Port `3000` available on localhost
+- **Backend Service**: `marketplace-risk-backend` running on port `8080` (or proxy target configured via `BACKEND_URL` environment variable)
+
+---
+
 ## 🛠️ How to Setup & Run
 
 ### Local Development
