@@ -24,10 +24,10 @@ app.get('/health', (req, res) => {
 
 // Proxy API requests to Spring Boot Risk Backend
 app.use(
-  '/api',
   createProxyMiddleware({
     target: BACKEND_URL,
-    changeOrigin: true
+    changeOrigin: true,
+    pathFilter: '/api'
   })
 );
 
