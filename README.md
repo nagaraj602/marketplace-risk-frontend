@@ -71,3 +71,12 @@ docker run -p 8280:8280 -e BACKEND_URL=http://host.docker.internal:8281 marketpl
 3. **Signal Simulator**: Click **Ingest Signal** on any scenario card (Flash Sale Burst, ATO Payout Hijack, Review Ring, or Legitimate Seller) to watch the platform score, classify, and route in real time.
 4. **Entity Deep Dive**: Click the **Eye icon** on any case row to inspect the composite score breakdown (Velocity vs. ML Anomaly), anomaly flags, and connected device/IP graph linkages.
 5. **Mitigation Actions**: Execute manual enforcements (**Suspend Seller**, **Takedown Listings**, **Freeze Payouts**) or resolve/dismiss cases directly from the UI.
+
+---
+
+## 🛡️ CI/CD & Jenkins Integration
+
+This frontend service utilizes Jenkins Multibranch Pipelines powered by [jenkins-sharedlibraries](https://github.com/nagaraj602/jenkins-sharedlibraries.git):
+- **Pull Request Quality Gate (`Jenkinsfile.pr`)**: Automatically triggered via GitHub webhook; runs Vite 8 production build and test verification, SonarQube quality gate analysis (`sonar-server`), local Docker builds, and Trivy security scans.
+- **Continuous Deployment (`Jenkinsfile`)**: Triggered on branch push/merge; builds production image, pushes to Amazon ECR, updates Helm values, and deploys to AWS EKS (`dev`, `uat`, or `prod`).
+- **Webhook Integration**: Configured with the **Multibranch Scan Webhook Trigger** plugin using trigger token `marketplace-risk-frontend-token`. See the [Complete Jenkins Integration Guide](https://github.com/nagaraj602/marketplace-risk-platform#%EF%B8%8F-jenkins-cicd-setup--multibranch-integration-guide).
