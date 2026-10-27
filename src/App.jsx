@@ -131,12 +131,12 @@ export default function App() {
         borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <ShieldCheck size={36} color="#38bdf8" />
+          <ShieldCheck size={36} color="#ffffff" />
           <div>
-            <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em' }}>
+            <h1 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', color: '#ffffff' }}>
               Marketplace Risk &amp; Abuse Detection Console
             </h1>
-            <p style={{ color: '#94a3b8', fontSize: '0.85rem' }}>
+            <p style={{ color: '#d4d4d8', fontSize: '0.85rem' }}>
               E-Commerce Trust &amp; Safety Real-Time Detection and Enforcement Platform
             </p>
           </div>

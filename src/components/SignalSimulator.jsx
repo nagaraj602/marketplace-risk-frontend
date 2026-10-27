@@ -102,10 +102,10 @@ export default function SignalSimulator({ onSimulate }) {
   return (
     <div className="card">
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-        <Sparkles size={20} color="#38bdf8" />
-        <h3 style={{ fontSize: '1.15rem', fontWeight: 600 }}>Live Signal Ingestion Simulator</h3>
+        <Sparkles size={20} color="#ffffff" />
+        <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#ffffff' }}>Live Signal Ingestion Simulator</h3>
       </div>
-      <p style={{ color: '#94a3b8', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
+      <p style={{ color: '#d4d4d8', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
         Inject realistic marketplace signal payloads to test Kafka event normalization, velocity rules, and ML anomaly routing.
       </p>
 
@@ -141,7 +141,7 @@ export default function SignalSimulator({ onSimulate }) {
                   {sc.badge}
                 </span>
               </div>
-              <p style={{ fontSize: '0.75rem', color: '#94a3b8', marginBottom: '1rem' }}>{sc.desc}</p>
+              <p style={{ fontSize: '0.75rem', color: '#d4d4d8', marginBottom: '1rem' }}>{sc.desc}</p>
             </div>
             <button
               className="btn btn-secondary"
