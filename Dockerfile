@@ -16,7 +16,7 @@ FROM node:24-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production \
-    PORT=3000
+    PORT=8280
 
 # Install production dependencies only for Express server
 COPY package*.json ./
@@ -29,9 +29,9 @@ COPY server.js .
 # Use non-root node user provided by the alpine base image
 USER node
 
-EXPOSE 3000
+EXPOSE 8280
 
 HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
-    CMD wget -qO- http://localhost:3000/health || exit 1
+    CMD wget -qO- http://localhost:8280/health || exit 1
 
 CMD ["node", "server.js"]

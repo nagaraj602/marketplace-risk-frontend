@@ -34,8 +34,8 @@ Before setting up the frontend console, verify the following prerequisites:
 - **Node.js 24 LTS+**: Active LTS JavaScript runtime (`node -v`)
 - **npm 10+**: Node package manager (`npm -v`)
 - **Docker Engine 24.0+**: (Optional for local Vite development; required for container builds)
-- **Port Availability**: Port `3000` available on localhost
-- **Backend Service**: `marketplace-risk-backend` running on port `8080` (or proxy target configured via `BACKEND_URL` environment variable)
+- **Port Availability**: Port `8280` available on localhost
+- **Backend Service**: `marketplace-risk-backend` running on port `8281` (or proxy target configured via `BACKEND_URL` environment variable)
 
 ---
 
@@ -46,7 +46,7 @@ Before setting up the frontend console, verify the following prerequisites:
 # Install dependencies
 npm install
 
-# Start Vite interactive dev server (port 3000)
+# Start Vite interactive dev server (port 8280)
 npm run dev
 ```
 
@@ -59,14 +59,14 @@ node server.js
 ### Docker Execution
 ```bash
 docker build -t marketplace-risk-frontend:latest .
-docker run -p 3000:3000 -e BACKEND_URL=http://host.docker.internal:8080 marketplace-risk-frontend:latest
+docker run -p 8280:8280 -e BACKEND_URL=http://host.docker.internal:8281 marketplace-risk-frontend:latest
 ```
 
 ---
 
 ## 🎮 How to Operate the Frontend Portal
 
-1. **Access Console**: Open [http://localhost:3000](http://localhost:3000) in your browser.
+1. **Access Console**: Open [http://localhost:8280](http://localhost:8280) in your browser.
 2. **Real-time Telemetry**: Review top-line health metrics including queue depth, automated takedowns, false positive rate, and pipeline latency.
 3. **Signal Simulator**: Click **Ingest Signal** on any scenario card (Flash Sale Burst, ATO Payout Hijack, Review Ring, or Legitimate Seller) to watch the platform score, classify, and route in real time.
 4. **Entity Deep Dive**: Click the **Eye icon** on any case row to inspect the composite score breakdown (Velocity vs. ML Anomaly), anomaly flags, and connected device/IP graph linkages.

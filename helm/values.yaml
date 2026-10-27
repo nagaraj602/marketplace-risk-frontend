@@ -7,11 +7,11 @@ frontend:
     pullPolicy: Always
   service:
     type: ClusterIP
-    port: 3000
-    targetPort: 3000
+    port: 8280
+    targetPort: 8280
   env:
-    PORT: "3000"
-    BACKEND_URL: "http://marketplace-risk-backend:8080"
+    PORT: "8280"
+    BACKEND_URL: "http://marketplace-risk-backend:8281"
   resources:
     requests:
       cpu: 100m
@@ -22,13 +22,13 @@ frontend:
   probes:
     liveness:
       path: /health
-      port: 3000
+      port: 8280
       initialDelaySeconds: 15
       periodSeconds: 10
       timeoutSeconds: 3
     readiness:
       path: /health
-      port: 3000
+      port: 8280
       initialDelaySeconds: 10
       periodSeconds: 5
       timeoutSeconds: 3
