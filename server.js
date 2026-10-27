@@ -34,8 +34,8 @@ app.use(
 // Serve Static Frontend Assets
 app.use(express.static(path.join(__dirname, 'build')));
 
-// Catch-all handler for client-side routing
-app.get('*', (req, res) => {
+// Catch-all fallback for client-side routing in Express 5
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
